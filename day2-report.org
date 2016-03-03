@@ -1,0 +1,27 @@
+
+* 2016-Feb-26-Friday
+** From 9:30 AM TO 12:30 PM :
+  - I resumed my work on installing =operating system=. This time I tried to
+    install Windows OS and on top of it I installed Ubuntu Machine.
+  - After successful installation of both OS's. I restarted my machine to check
+    whether grub entries are there or not.
+  - I couldn't see the grub entries for Windows OS. Then I logged into the
+    Ubuntu machine and updated the grub using command "grub-update".
+  - Then I could see both OS's grub entries.
+
+** From 2:00 PM TO 6:00 PM :
+  - I started taking online course on =Linux and Shell= Commands. And completed 3
+    video lectures and done the assignment as well. Through which I came to learn following commands
+    + cd - cd directory, cd ., cd .., cd /
+    + ls - ls, ls -l, ls -a and ls -lrt
+    + cp - cp source destination, cp -r source destination,
+    + mv - mv source destination
+    + rm - rm filename, rm -f filename, rm -rf foldername
+    + mkdir - mkdir dirname
+    + rmdir - rmdir dirname
+    + touch - touch filename
+    + cat -  cat filename, cat > filename, cat >> filename.
+    + chmod - chmod -R rwxrwxrwx file/foldername
+    + ls -l |more
+    + cd . 
+    + cd ..

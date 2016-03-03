@@ -1,0 +1,59 @@
+* 2016-Feb-29-Monday
+** From 9:30 AM TO 12:30 PM :
+ - I started taking course from [[www.sbarjatiya.com]] on =Regular Expressions=. And completed
+    video lectures and done the assignment as well. Through which I came to learn the following commands
+  
+   -  =*=  (The preceding item will be matched zero or more times)
+#+begin_example
+Ex:- rm -f file* (which is used to remove files from started)
+#+end_example
+
+#+begin_example
+Ex:- rm -f *.txt (which is used to remove files from ending with extension txt)
+#+end_example
+
+   -  =?=  (The preceding item is optional and will be matched at one time)
+#+begin_example
+Ex:- rm -f file? (which is used to remove files with only one charecter or number)
+#+end_example
+
+   -  =??=  (The preceding item is optional and will be matched at two times)
+#+begin_example
+Ex:-rm -f file?? (which is used to remove files with only two charecters or numbers)
+#+end_example
+
+   -  =[a-b] or [A-Z]= (The preceding item is matched exactly from a-z or A-Z)
+#+begin_example
+Ex:- rm -f (a-z)/(A-Z) (which is used to remove alphabeticals in a directories)
+#+end_example
+
+   -  =[0-9]= (The preceding item is matched exactly from 0-9)
+#+begin_example
+Ex:- rm -f [0-9] (which is used to remove digits in a directories)
+#+end_example
+
+** From 2:00 PM TO 6:00 PM :
+  - I started taking online course from [[www.sbarjatiya.com]] on =GREP= and =SED= Commands. And completed
+    video lectures and done the assignment as well. Through which I came to learn following commands
+* grep command:
+  - grep is a command which is used to search a word or number in a files
+  - Syntax:-grep <OPTIONS> <PATTERN> <FILES>
+
+#+begin_example
+Ex:- grep ^a filename (^ means start with line of a in file)
+Ex:- grep a$ filename ($ means end with line in file )
+Ex:- grep '[[[[:alpha:]]]]\>' * filename (which is used to alphabets ending of a line)
+Ex:- grep '\<[[[[:alpha:]]]]' * filename (which is used to alphabets begining of a line)
+Ex:- grep '[[[[:digit:]]]]\>' * filename (which is used to numbers ending of a line)
+Ex:- grep '\<[[[[:digit:]]]]' * filename (which is used to numbers  begining of a line)
+#+end_example
+
+* sed command:
+ - sed is a command which is used to inline edit the file
+ - Syntax:-sed <OPTIONS> <SCRIPT> <INPUTFILE>
+
+#+begin_example
+Ex:- sed -e 's/aple/apple/g' filename (s indicates source, 'g' option after the last slash tells sed to perform a global replace.)
+Ex:- sed -e 's/ornge*/orange/g' filename (* it indicates the all the charecters edit at once)
+#+end_example
+      

@@ -1,0 +1,59 @@
+* 2016-Feb-01-Tuesday
+** From 9:30 AM TO 12:30 PM :
+  - I started taking online tutorials on =FIND=, =TAIL= and =SORT= Commands. And completed 3
+    online tutorials and done the assignment as well. Through which I came to learn following commands
+   
+  - Syntax:-find <path> -name <filename> (which is used to search files or directory)
+#+begin_example
+Ex:-find /home/raghu/file -name filename
+#+end_example
+
+  - Syntax:-tail -n <filename> (which is used to output of last lines)
+#+begin_example
+Ex:-tail -2 filename (output last 2 lines)
+#+end_example
+
+  - Syntax:-tail +n <filename> (which is used to output of fisrt lines)
+#+begin_example
+Ex:-tail +2 filename (output first 2 lines)
+#+end_example
+
+  - Syntax:-sort <filename>
+#+begin_example
+Ex:-sort /home/raghu/file.txt (which is used for sorting lines in a files)
+#+end_example
+
+** From 2:00 PM TO 6:00 PM :
+  - I started taking online tutorials on =LINK=, =REDIRECTING INPUT & OUTPUT= and =PIPES= Commands. And completed 3
+    online tutorials and done the assignment as well. Through which I came to learn following commands
+   
+  - Syntax:-ln <filename> <linkname>
+
+#+begin_example
+Ex:-ln filename newfilename (link from one file or directory to another can be created using the ln command)
+#+end_example
+
+* Redirecting INPUT and OUTPUT:
+ - A program can be told where to look for input and where to send output, using input/output redirection.
+
+** Redirecting Input:
+ - Syntax:- ls < <input>
+#+begin_example
+Ex:- ls < filename 
+#+end_example
+
+** Redirecting Output:
+ - Syntax:- ls > <Output>
+#+begin_example
+Ex:- ls -l > filename
+#+end_example
+
+* Pipes:
+ - A pipe is used to connect the output of one command to the input of another command
+
+#+begin_example
+Ex:-ls | wc -l (which is used to list output of a files or directories)
+Ex:-cat filename | sort (which is used to see the contents in a file and sorting lines)
+Ex:-cat filename | wc -l (which is used to see the contents in a file and count lines in a file)
+Ex:-cat filename | grep [a-z] (which is used to search word or number in a file)
+#+end_example

@@ -1,0 +1,27 @@
+* 2016-Feb-25-Thursday
+** From 9:30 AM TO 12:30 PM :
+  - As I came to know that VLEAD is completely using open source
+    technologies. I took a very first step to install an Operating System on my
+    desktop machine.
+  - There are multiple ways to install an Operating Systems on any
+    desktop/server machine, those are 
+    + Through USB
+    + Through CD-ROM
+    + Through Network Boot
+    + Through Floppy Disk
+  - To install OS I have chosen CentOS 6.5 64 bit distribution of Linux. Why because
+    all the servers at vlead using CentOS as a OS.
+  - I have installed OS through USB, CD-ROM and it worked well.
+
+** From 2:00 PM TO 6:00 PM :
+
+ -  And also I tried to install OS through Network Boot and  during installation I faced
+    few issues then, I took team members to
+    resolve the issue and it worked well.
+ -  As it is possible to install multiple operating systems on any desktop/server
+    machine I tried to make dual boot my machine. I choose CentOS 6.5 64 bit as
+    first machine and Ubuntu12.04 32 bit as second OS.
+ -  After successful installation of both the OS's. I restarted my machine to
+    see the OS kernel entries on grub list and I could see both the os's kernel
+    list
+    

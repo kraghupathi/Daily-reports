@@ -1,54 +1,57 @@
 * 2016-Feb-02-Wednesday
 ** From 9:30 AM TO 12:30 PM :
- - I started taking online course on =File Permissions=. And completed 2
+ - I started taking online course on File Permissions. And completed 2
     video lectures and done the assignment as well. Through which I came to learn following commands
 
 * File Permissions:   
  - Permissions are access to rights to users and groups of users.Every file or directory in linux has 3 permssions defined as owners, those are
 
-#+begin_example
    * Owner  - a single person who owns the file.
    * Group  - every file belongs to a single group.
    * Others - everyone else who is not in the group or the owner.
-#+end_example
-
- - Syntax:- chmod <options> <mode> <files>
 
  - Read = 4
  - Write = 2
  - Execute = 1
 
 #+begin_example
-Ex:- chmod 777 file
+Syntax:- chmod <options> <mode> <files>
+chmod 777 file
 #+end_example 
 
 #+begin_example
-Ex:- chmod -R 777 file
+chmod -R 777 file
 #+end_example 
 
 ** From 2:00 PM TO 6:00 PM :  
- - I started taking online course from [[www.sbarjatiya.com]] on =SSH=, =SCP= and =RSYNC= Commands. And completed
+ - I started taking online course from [[www.sbarjatiya.com]] on ssh, scp and rsync Commands. And completed
     video lectures and done the assignment as well. Through which I came to learn following commands
 
 * SSH (Secure Shell):
  - SSH is a Network protocol which is used for secure communication.
  - The Secure Shell (SSH) Protocol by default uses port 22.
 
- - =Syntax=:- ssh <username>@<hostname>
+#+begin_example
+Syntax:- ssh <username>@<hostname>
+#+end_example 
 
 * SCP (Secure Copy):
  - SCP is a secure copy from between hosts on a network.
 
- - =Syntax=:- scp [options] <username>@<hostname>:<sourcepath> <destination> (copy from remote machine to local machine)
- - =Syntax=:- scp [options] <source:path> <username>@<hostname>:<destination> (copy from local machine to remote machine)
+#+begin_example
+Syntax:- scp [options] <username>@<hostname>:<sourcepath> <destination> (copy from remote machine to local machine)
+Syntax:- scp [options] <source:path> <username>@<hostname>:<destination> (copy from local machine to remote machine)
+#+end_example
 
 * rsync (Remote Synchronized):
  - rsync is a remote synchronized command, which is used for copying files and directories remotely as well as locally in Linux/Unix systems.
-
- - =Syntax=:- rsync [options] user@host:sourcepath destination:path (copy from remote machine to local machine)
- - =Syntax=:- rsync [options] source:path user@host:destination:path (copy from local machine to remote machine)
+#+begin_example
+Syntax:- rsync [options] user@host:sourcepath destination:path (copy from remote machine to local machine)
+Syntax:- rsync [options] source:path user@host:destination:path (copy from local machine to remote machine)
+#+end_example
 
 * Difference between SCP and RSYNC:
  - It’s faster than scp (Secure Copy) because rsync uses remote-update protocol which allows to transfer.
- - =Ex=:- Difference between two files in a directory, it copies the two files from source to destination, but next time,
+ - Difference between two files in a directory, it copies the two files from source to destination, but next time,
    it copies only the changed files to the desination
+

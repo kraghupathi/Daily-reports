@@ -20,11 +20,11 @@ chmod 777 file
 #+end_example 
 
 #+begin_example
-chmod -R 777 file
+chmod -R 777 folder
 #+end_example 
 
 ** From 2:00 PM TO 6:00 PM :  
- - I started taking online course from [[www.sbarjatiya.com]] on ssh, scp and rsync Commands. And completed
+ - Took online course from [[http://sbarjatiya.com/website/video_tutorials/working_remotely.ogv]] on ssh, scp and rsync Commands. And completed
     video lectures and done the assignment as well. Through which I came to learn following commands
 
 * SSH (Secure Shell):

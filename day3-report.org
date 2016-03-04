@@ -1,6 +1,6 @@
 * 2016-Feb-29-Monday
 ** From 9:30 AM TO 05:30 PM :
- - I have completed Regular Expressions concepts and took video lecture at [[http://sbarjatiya.com/website/video_tutorials/regular_expressions.ogv][www.sbarjatiya.com]] and done the assignments as well. Through which I came to learn the following commands
+I have completed Regular Expressions concepts and took video lecture at [[http://sbarjatiya.com/website/video_tutorials/regular_expressions.ogv][www.sbarjatiya.com]] and done the assignments as well. Through which I came to learn the following commands
 + *  (The preceding item will be matched zero or more times)
 #+begin_example
 1. rm -f file* (which is used to remove files from started)

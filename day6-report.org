@@ -1,25 +1,16 @@
 * 2016-Feb-03 Thursday
-** From 9:30 AM TO 1:00 PM:
-- I started taking online tutorials on shell script using various shell commands. And completed 6 video lectures and done the assignment as well.
-  Through which I came to learn following commands
- + Creating variuos shell scripts those are creating files & derectories, installing packages, update & upgrade system, using various following commands
- + cd- cd dirname
- + cat- cat filename
- + mkdir- mkdir dirname
- + grep- wordname filename
- + sed - sed <options> <scripts> <filename>
- + if cndition
- + if then else
- + apt-get install <packagename>
- + ap-get update
- + apt-get upgrade
-** From 2:00 PM TO 5:00 PM:
-- I started taking online tutorials on shell script using various shell commands. And completed 4 video lectures and done the assignment as well.
-  Through which I came to learn following commands
- + Creating various shell scripts such as, mathematical operations, file permissions, for and while loop  using various following commands
- + chmod <options> <mode> <filename> (which is used for set the file permissions)
- + echo "Hi Good Morning" (echo is used to print the line)
+** From 9:30 AM TO 11:30 AM:
+Worked with Yogesh and Sripathi about resolving issue which is related to the creating google drive shared and common folders in admin@vlabs.ac.in account. Through which I came to know few things
+- Use of redmine tool to solve the issues
+- Team work
+- Came to know about creating google drive concepts like creating/modifying/deleting drive folders.
+** From 01:30 AM TO 05:30 PM:
+Read various online articles about shell script. And also completed 6 video lectures and done the assignment as well.
++ Creating various shell script to automate the tasks. So far I used following things in my shell script.
+ + if statement
+ + if then else statement
  + for loop
  + while loop
+ + Command line aruguments using $?, $#, $1,$2 variables
 
  

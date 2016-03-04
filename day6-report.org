@@ -6,7 +6,7 @@ Worked with Yogesh and Sripathi about resolving issue which is related to the cr
 - Came to know about creating google drive concepts like creating/modifying/deleting drive folders.
 ** From 01:30 AM TO 05:30 PM:
 Read various online articles about shell script. And also completed 6 video lectures and done the assignment as well.
-+ Creating various shell script to automate the tasks. So far I used following things in my shell script.
++ Creating various shell script to automate the tasks. So far I used following things in my shell script with the help of following things I used various commands that I am already aware of to perform specific tasks.
  + if statement
  + if then else statement
  + for loop

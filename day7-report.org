@@ -1,8 +1,9 @@
 * 2016-Feb-05-satarday
 ** From 9:30 AM TO 01:00 PM :
  - I have practised all the shell commands and wrote the simple shell script using following commands
- + yum install <packagename>
-#+begin_example
+ #+begin_example
+ #!/bin/bash
+ yum -y update
  yum install -y mysql-server
 if [ $? -eq 0 ]
 then

@@ -1,0 +1,51 @@
+* 2016-Feb-09-wednesday
+** From 9:30 AM TO 01:00 PM :
+ - I have practised all the shell commands and wrote the simple shell script using following commands
+ + yum install <packagename>
+#+begin_example
+ yum install -y mysql-server
+if [ $? -eq 0 ]
+then
+ echo "succefuly installed mysql-server"
+else
+ echo "unable to install mysql-server"
+exit
+fi
+#+end_example
+ + To create multiple folders as well as create files at once using through for loop
+#+begin_example
+for i in {1..10}
+do
+mkdir /home/<foldername>$i
+touch /home/<fiename>$i
+done
+#+end_example
+ + chmod <options> <mode> <file/foldername>
+#+begin_example
+chmod 766 <filename>
+#+end_example
+** From 1:30 PM TO 6:00 PM :
+ - Read various online articles about Functions in shell script. And also completed online tutorials and done assignment as well.
+ - Creating various shell script to automate the tasks. So far I used following things in my shell script with the help of following things I used various commands that I am already aware of to perform specific tasks.
+ - for loop
+   Command line aruguments using $?, $1,$2 variables
+#+begin_example
+To create multiple folders through functions
+syntax:=
+function_name ()
+ { 
+   list of commands
+}
+
+Ex:=
+folder ()
+{
+    folder $1
+}
+for i in {1..10}
+do
+mkdir folder$i
+done
+#+end_example
+
+

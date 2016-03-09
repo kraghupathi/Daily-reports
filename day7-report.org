@@ -1,4 +1,4 @@
-* 2016-Feb-09-wednesday
+* 2016-Feb-05-satarday
 ** From 9:30 AM TO 01:00 PM :
  - I have practised all the shell commands and wrote the simple shell script using following commands
  + yum install <packagename>
@@ -24,7 +24,7 @@ done
 #+begin_example
 chmod 766 <filename>
 #+end_example
-** From 1:30 PM TO 6:00 PM :
+** From 2:00 PM TO 5:00 PM :
  - Read various online articles about Functions in shell script. And also completed online tutorials and done assignment as well.
  - Creating various shell script to automate the tasks. So far I used following things in my shell script with the help of following things I used various commands that I am already aware of to perform specific tasks.
  - for loop

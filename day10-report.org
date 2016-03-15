@@ -1,0 +1,69 @@
+* 2016-Feb-09 Wednesday
+** From 9:30 AM TO 01:00 PM :
+ - Today I read about =Openvz=. Which is available at [[http://www.unixmen.com/install-and-configure-openvz-on-centos/][here]].And completed the tutorial.
+* Openvz:
+ - OpenVZ is a container-based virtualization solution for Linux. We can create ‘n’ number of Virtual machines depending upon the configuration of our physical system.
+   Each virtual machine will act like a separate standalone physical system, and doesn’t conflict with one another.
+   The virtual machines created using OpenVZ can be rebooted independently.
+** System Requirements:
+  + A Processor Intel or AMD PC
+  + Atleast 128MB of RAM
+  + Hard drives with atleast 4GB free disk space
+  + Atleast 1NICs
+  + Internet connection.
+** From 2:00 AM TO 06:00 PM :
+ - I have gone through =Openvz= tutorial and I have installed the *Openvz* using following commands
+** Install Openvz:
+   1. Add OpenVZ Repository
+   - Download OpenVZ Repository and put it in /etc/yum.repos.d/ directory.
+#+begin_example
+yum install wget
+wget -P /etc/yum.repos.d/ http://ftp.openvz.org/openvz.repo
+#+end_example
+   - Import OpenVZ GPG key:
+#+begin_example
+rpm --import http://ftp.openvz.org/RPM-GPG-Key-OpenVZ
+#+end_example
+   2.Install OpenVZ kernel
+#+begin_example
+yum install vzkernel
+#+end_example
+   3.Setting up Kernel parameters
+     Make sure you have added the following kernel parameters before logging into vz kernel.
+#+begin_example
+vi sysctl.conf
+#+end_example  
+   - Add the following lines:
+#+begin_example
+# On Hardware Node we generally need
+# packet forwarding enabled and proxy arp disabled
+net.ipv4.ip_forward = 1
+net.ipv6.conf.default.forwarding = 1
+net.ipv6.conf.all.forwarding = 1
+net.ipv4.conf.default.proxy_arp = 0
+# Enables source route verification
+net.ipv4.conf.all.rp_filter = 1
+# Enables the magic-sysrq key
+kernel.sysrq = 1
+# We do not want all our interfaces to send redirects
+net.ipv4.conf.default.send_redirects = 1
+net.ipv4.conf.all.send_redirects = 0
+#+end_example
+   4. Disable SELinux
+   - Edit /etc/sysconfig/selinux file:
+#+begin_example
+emacs /etc/sysconfig/selinux
+#+end_example
+   - Set as disabled:
+#+begin_example
+SELINUX=disabled
+#+end_example
+   5. Install OpenVz usage statistics tools
+   -  The following tools to be installed to gather the OpenVZ usage statistics. Here is the reason why you should install these tools.
+#+begin_example
+yum install vzctl vzquota ploop
+#+end_example
+   -  That’s it. We have successfully installed OpenVZ.
+
+
+    

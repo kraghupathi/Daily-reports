@@ -1,0 +1,28 @@
+* 2016-Feb-08 Tuesday
+** From 10:00 AM TO 05:00 PM:
+ - I read about Virtualization techniques from online tutorials and various articles.Done the assignment as well.
+* Virtualization:
+ - Virtualization is a technology to run multiple same or different
+   Operating System, which is completely isolated from each other.
+   Which means separating hardware from a single operating system.
+** Virtualization Types
+ - Hardware Virtualization
+ - Operating-Sytem level Virtualization
+*** Hardware virtualization
+ - Hardware virtualization refers to taking the components of a real machine and making them virtual. 
+   This virtual machine works like the real machine and is usually a computer with an operating system. 
+ + Ex:= VMware ESX, MS Virtual Server, Xen and others.
+*** Operating-System Level Virtualization
+ - OS-level virtualization is in single os, where the OS kernel allows for multiple isolated user space instances
+ - good for server consolidation.
+ + Ex:= Chroot, Openvz, Jails
+** Features of Virtualization
+ + Reduce number of servers.
+ + Reduce Cost Ownership.
+ + Improve availability and business continuity.
+ + Increase efficiency for development and test environments.
+* Hypervisor:
+ - Hypervisor is a software layer sits between hardware and OSes which will interact with hardware and resourses and provide interface to share the available
+   to virtual containers.
+
+

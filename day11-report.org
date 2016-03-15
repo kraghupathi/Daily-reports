@@ -1,0 +1,98 @@
+* 2016-Feb-10 Thursday
+** From 9:00 AM TO 01:00 AM:
+ - I have gone through install Openvz and Creating Containers from online tutorial which is available at [[http://www.unixmen.com/how-to-create-openvz-container-in-openvz/][here]] .And done the tutorial.Here I have learned about container and creating containers using following commands those are
+* Container:
+ - The Virtual machines are known as Containers in OpenVZ.the main advantage of Containers is that they will share the resources of the physical machine dynamically.
+   That means, a particular amount of RAM or Disk space will not be allocated to any particular container.
+** Creating Containers in Openvz:
+ - The list of available pre-created templates availale [[ http://openvz.org/Download/template/precreated][here]] for dowbload centos minimal template
+ + vzctl (It is a command, which is used to manage containers)
+ + cd /vz/template/cache/ (which is the default directory to store the downloaded templates.)
+ + vzctl create 101 --ostemplate centos-7-x86_64-minimal (which is used to create the first virtual machine)
+ + 101 – Container ID (It typically starts from 100)
+ + Next, we have to setup the IP address to the Container, for example: 192.168.1.103.
+ + vzctl set 101 --ipadd 192.168.1.103 --save (which is used to set ip address)
+ + vzctl set 101 --nameserver 8.8.8.8 --save (which is used to assign DNS server)
+ + vzctl start 101 (To start container)
+ + vzctl enter 101 (Entering the container)
+
+** From 02:00 AM TO 06:00 PM:
+ - I read about basic commands of Opnenvz and practiced following commands those are 
+ + vzlist (It is a command, which is used to list the running vpss(virtual private service))
+#+begin_example
+vzlist
+#+end_example 
++ vzctl start CTID (which is used to start container)
+#+begin_example
+vzctl start 101
+#+end_example
+ + vzctl stop CTID (which is used to stop container)
+#+begin_example
+vzctl stop 101
+#+end_example
+ + vzctl status CTID (which is used to view the status of vpps)
+#+begin_example
+vzctl status 101
+#+end_example
+ + vzctl enter CTID (which is used to entering container)
+#+begin_example
+vzctl enter 101
+#+end_example
+ + vzctl set CTID --hostname New_hostname --save (Set hostname for a Server)
+#+begin_example
+vzctl set 101 --hostname raghu --save
+#+end_example
+ + vzctl set CTID --ipadd xx.xx.xx.xx --save (Set IP address)
+#+begin_example
+vzctl set 101 --ipadd 10.2.56.110 --save
+#+end_example
+ + vzctl set CTID --ipdel xx.xx.xx.xx --save (Delete IP address)
+#+begin_example
+vzctl set 101 --ipdel 10.2.56.110 --save
+#+end_example
+ + vzctl set CTID --nameserver xx.xx.xx.xx --save (Add name server)
+#+begin_example
+vzctl set 101 --nameserver 10.4.2.222 --save
+#+end_example
+ + vzctl set CTID --userpasswd root:new_password --save (Reset userpassword and rootpassword)
+#+begin_example
+vzctl set 101 --raghu root:xxxx --save
+#+end_example
+ + vzctl destroy CTID (Delete container)
+#+begin_example
+vzctl destroy 101
+#+end_example
+ + vzctl suspend CTID (suspended container)
+#+begin_example
+vzctl suspend 101
+#+end_example
+ + vzctl restart 101 (To Restart container)
+#+begin_example
+vzctl restart 101
+#+end_example
+ + vzyum 101 -y update (Updating system)
+#+begin_example
+vzctl 101 -y update
+#+end_example
+ + vzyum 101 -y install <package> (To intall package)
+#+begin_example
+vzyum 101 -y install firefox
+#+end_example
+ + vzctl set {ctid} --ram {ram} --swap {swap} --save (Set the ram size)
+#+begin_example
+vzctl set 101 --ram 1.2G --swap 10M --save
+#+end_example
+ + vzctl set 101 --diskspace <disksize> --save  (set diskspace)
+#+begin_example
+vzctl set 101 --diskspace 100G --save
+#+end_example
+ + vzctl set CTID --diskspace $SoftLimit$:$HardLimit$ --save
+#+begin_example
+vzctl set 101 --diskspace 10G:20G --save
+#+end_example
+ + vzctl exec 101 command (replace command with the command you need to execute)
+#+begin_example
+vzctl exec 101 df -h (replace command with the command you need to execute)
+#+end_example
+
+

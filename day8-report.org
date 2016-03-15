@@ -1,0 +1,54 @@
+* 2016-Feb-07-Monday
+** From 10:00 AM TO 05:00 PM :
+ - Revised all the Centos commands and I have learned various package installation commands in =Centos= those are
+* Yum (yellowdog updater modified):
+ - YUM (Yellowdog Updater Modified) is an open source command-line as well as graphical based package management tool for RPM (RedHat Package Manager)
+   based Linux systems. which allows users and system administrator to easily install, update, remove or search software packages on a systems.
+ + yum -y install <package> (which is used to install software packages)
+#+begin_example
+yum -y install git
+#+end_example
+ + yum -y remove <package> (which is used to remove a sofware packages completely)
+#+begin_example
+yum -y remove git
+#+end_example
+ + yum -y update (which is used to updating a system)
+#+begin_example
+yum -y update
+#+end_example
+ + yum -y update <package> (which is used to updating a specific package)
+#+begin_example
+yum -y update firefox
+#+end_example
+ + yum list <package> (Use the list function to search for the specific package with name)
+#+begin_example
+yum list firefox
+#+end_example
+ + yum search <package> (which is used for search all the available packages to match the name of the package you specified)
+#+begin_example
+yum search firefox
+#+end_example
+ + yum info <package> (which is used to know information of a package)
+#+begin_example
+yum info firefox
+#+end_example
+ + yum check-update (which is used to check find how many of installed packages on your system have updates available)
+#+begin_example
+yum check-update
+#+end_example
+ + /etc/yum.repos.d/ directory (which is used to create YUM Repository configuration file)
+#+begin_example
+ emacs /etc/yum.repos.d/example.repo 
+#+end_example
+ + yum repolist (which is used to show a list of enabled yum repositories)
+#+begin_example
+yum repolist
+#+end_example
+ + wget <URL> (It is a command, which is free utility for non-interactive download of files from the Web.)
+#+begin_example
+wget http://ftp.gnu.org/gnu/wget/wget-1.5.3.tar.gz
+#+end_example
+ + rpm -ivh {rpm-file} (which is used to Install the rpm package)
+#+begin_example
+rpm -ivh pidgin-2.7.9-5.el6.2.i686.rpm
+#+end_example

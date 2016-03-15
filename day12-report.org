@@ -1,0 +1,6 @@
+* 2016-Feb-04 Friday
+** From 9:30 AM TO 01:00 AM:
+- Revised Virtualization Techniques and Types of Virtualization so far whatever I have learned. And clarified various doubts with Sripathi this gave me lot of confidance
+  
+** From 02:00 PM TO 05:30 PM:
+- I have practised all the Openvz commands and created couple of containers in our physical computer.

@@ -1,0 +1,73 @@
+* 2016-Feb-15 Tuesday
+** From 9:30 AM TO 01:00 PM :
+- I have practised all the Openvz commands and created couple of containers in our physical computer. Following Containers those are
+*** Container-1 (Fedora)
+ + vzctl create 102 --ostemplate fedora-20-x86_64
+ + Next, we have to setup the IP address to the Container.
+ + vzctl set 102 --ipadd 10.2.57.110 --save
+ + vzctl set 102 --nameserver 10.4.12.160 --save
+ + vzctl start 102
+ + vzctl enter 102
+- Here iam using SSH and SCP for remotely worked from Base machine to Virtual machine
+ + Syntax:- ssh <username>@<Domainname>
+#+begin_example
+ssh root@10.2.59.109 (which is used to connect from host machine to container)
+#+end_example
++ Syntax:- scp <username>@<domainname>:<sourcepath> <destinationpathi>
+#+begin_example
+scp root@10.2.59.109:</home/file1.txt> </home/> (which is used to copy from remote machine to local machine) 
+#+end_example
+ + Syntax:- scp <source:path> <username>@<hostname>:<destination> 
+#+begin_example
+scp /home/file.txt root@10.2.59.109:</home/file1.txt> (which is used to copy from hostmachine to remote machine) 
+#+end_example
+
+*** Container-2 (Ubuntu)
+ + vzctl create 103 --ostemplate ubuntu-15.10-x86_64
+ + Next, we have to setup the IP address to the Container.
+ + vzctl set 103 --ipadd 10.2.58.111 --save
+ + vzctl set 103 --nameserver 10.4.12.160 --save
+ + vzctl start 103
+ + vzctl enter 103
+- Here iam using SSH and SCP for remotely worked from Container-1 (i.e Fedora) to Container-2 (i.e Ubuntu)
+ + Syntax:- ssh <username>@<Domainname>
+#+begin_example
+ssh root@10.2.57.110 (which is used to connect from host machine to container)
+#+end_example
+ + Syntax:- scp <username>@<domainname>:<sourcepath> <destinationpathi>
+#+begin_example
+scp root@10.2.57.110:</home/file1.txt> </home/> (which is used to copy from remote machine to local machine) 
+#+end_example
+ + Syntax:- scp <source:path> <username>@<hostname>:<destination> 
+#+begin_example
+scp /home/file.txt root@10.2.57.110:</home/file1.txt> (which is used to copy from hostmachine to remote machine) 
+#+end_example
+
+** From 02:00 PM TO 06:00 PM:
+ - I have gone through the Virtualization techniques from online tutorials and read various articles, To Installed Virtual box in our physical system.
+* Hardware virtualization
+ - Hardware virtualization refers to taking the components of a real machine and making them virtual. This virtual machine works like the real machine and is usually a computer with an operating system.
+   Ex:= VMware ESX, MS Virtual Server, Xen and others.
+* Virtual Box:
+ - A VirtualBox is a software virtualization package that installs on an operating system as an application.
+   VirtualBox allows additional operating systems to be installed on it, as a Guest OS, and run in a virtual environment.
+** To Install VirtualBox using Various Commands
+ - I took online article is available at [[http://www.tecmint.com/install-virtualbox-on-redhat-centos-fedora/][here]].
+ - Add the VirtualBox own repository to install latest VirtualBox 5.0 on following systems.
+#+begin_example
+cd /etc/yum.repos.d/
+wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+#+end_example
+*** Install Dependency Packages for VirtualBox
+ - VirtualBox uses vboxdrv kernel module to control and allocate physical memory for execution of guest operating systems. Without this module,
+   you can still use the VirtualBox to create and configure virtual machines, but they will not work. So, to make VirtualBox fully functional
+   you will need to update your system first, then install some additional modules like DKMS, kernel-headers and kernel-devel and some dependency packages.
+#+begin_example
+yum update
+yum install binutils qt gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkm
+#+end_example
+*** Install VirtualBox 5.0
+ - Once you’ve installed all the needed dependency packages, you can install latest version of VirtualBox using following command.
+#+begin_example
+yum install VirtualBox-5.0
+#+end_example

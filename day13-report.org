@@ -1,73 +1,81 @@
-* 2016-Feb-15 Tuesday
-** From 9:30 AM TO 01:00 PM :
-- I have practised all the Openvz commands and created couple of containers in our physical computer. Following Containers those are
-*** Container-1 (Fedora)
- + vzctl create 102 --ostemplate fedora-20-x86_64
- + Next, we have to setup the IP address to the Container.
- + vzctl set 102 --ipadd 10.2.57.110 --save
- + vzctl set 102 --nameserver 10.4.12.160 --save
- + vzctl start 102
- + vzctl enter 102
-- Here iam using SSH and SCP for remotely worked from Base machine to Virtual machine
- + Syntax:- ssh <username>@<Domainname>
-#+begin_example
-ssh root@10.2.59.109 (which is used to connect from host machine to container)
-#+end_example
-+ Syntax:- scp <username>@<domainname>:<sourcepath> <destinationpathi>
-#+begin_example
-scp root@10.2.59.109:</home/file1.txt> </home/> (which is used to copy from remote machine to local machine) 
-#+end_example
- + Syntax:- scp <source:path> <username>@<hostname>:<destination> 
-#+begin_example
-scp /home/file.txt root@10.2.59.109:</home/file1.txt> (which is used to copy from hostmachine to remote machine) 
-#+end_example
+* 2016-Feb-12-Satarday
+** From 10:30 AM TO 05:30 PM :
+- Today I have taken Version Control System and GIT. And read various articles from online and practise git commands those are 
+* Version Control System:
+ - A system that records changes to a file over time so you can recall specific vesions later.
+ - A way to keep track of changes to files
+ - Between multiple developers
+ - A record of who did what, when
 
-*** Container-2 (Ubuntu)
- + vzctl create 103 --ostemplate ubuntu-15.10-x86_64
- + Next, we have to setup the IP address to the Container.
- + vzctl set 103 --ipadd 10.2.58.111 --save
- + vzctl set 103 --nameserver 10.4.12.160 --save
- + vzctl start 103
- + vzctl enter 103
-- Here iam using SSH and SCP for remotely worked from Container-1 (i.e Fedora) to Container-2 (i.e Ubuntu)
- + Syntax:- ssh <username>@<Domainname>
-#+begin_example
-ssh root@10.2.57.110 (which is used to connect from host machine to container)
-#+end_example
- + Syntax:- scp <username>@<domainname>:<sourcepath> <destinationpathi>
-#+begin_example
-scp root@10.2.57.110:</home/file1.txt> </home/> (which is used to copy from remote machine to local machine) 
-#+end_example
- + Syntax:- scp <source:path> <username>@<hostname>:<destination> 
-#+begin_example
-scp /home/file.txt root@10.2.57.110:</home/file1.txt> (which is used to copy from hostmachine to remote machine) 
-#+end_example
+** Advantages of Version Control Sytem:
++ Backup and Restore
++ Sync with multiple computers
++ Working in a team
++ Safely create and test new features
 
-** From 02:00 PM TO 06:00 PM:
- - I have gone through the Virtualization techniques from online tutorials and read various articles, To Installed Virtual box in our physical system.
-* Hardware virtualization
- - Hardware virtualization refers to taking the components of a real machine and making them virtual. This virtual machine works like the real machine and is usually a computer with an operating system.
-   Ex:= VMware ESX, MS Virtual Server, Xen and others.
-* Virtual Box:
- - A VirtualBox is a software virtualization package that installs on an operating system as an application.
-   VirtualBox allows additional operating systems to be installed on it, as a Guest OS, and run in a virtual environment.
-** To Install VirtualBox using Various Commands
- - I took online article is available at [[http://www.tecmint.com/install-virtualbox-on-redhat-centos-fedora/][here]].
- - Add the VirtualBox own repository to install latest VirtualBox 5.0 on following systems.
+** Types of VCS:
++ GIT
++ SVN(Subversion)
++ Bazaar
+
+* GIT:
+- GIT is a open source distributed Version Control System. It tracks content such as files and directories.
+
+* Github:
+- GitHub, is a web-page on which you can publish your Git repositories and collaborate with other people.
+
+*** Git Branches:
+ - A branch in Git is simply a lightweight movable pointer to one of these commits. 
+   The default branch name in Git is master. As you initially make commits, you're given a master branch that points to the last commit you made. 
+   Every time you commit, it moves forward automatically.
+ - A branch, at its core, is a unique series of code changes with a unique name. Each repository can have one or more branches.
+   to create branch, git branch -a
+
+*** GIT Basic Commands:
+ - Configure your user and email for Git via the following command.
 #+begin_example
-cd /etc/yum.repos.d/
-wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+git config --global user.name "Firstname Lastname"
 #+end_example
-*** Install Dependency Packages for VirtualBox
- - VirtualBox uses vboxdrv kernel module to control and allocate physical memory for execution of guest operating systems. Without this module,
-   you can still use the VirtualBox to create and configure virtual machines, but they will not work. So, to make VirtualBox fully functional
-   you will need to update your system first, then install some additional modules like DKMS, kernel-headers and kernel-devel and some dependency packages.
+ - configure the email address
 #+begin_example
-yum update
-yum install binutils qt gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkm
+git config --global user.email "your.email@example.org" 
 #+end_example
-*** Install VirtualBox 5.0
- - Once you’ve installed all the needed dependency packages, you can install latest version of VirtualBox using following command.
+ - git-clone - Clone a repository into a new directory
 #+begin_example
-yum install VirtualBox-5.0
+git clone <repositry>
+#+end_example
+ - git init :
+ + which is used to initialize the project or repositry.
+#+begin_example
+git init <repositry>
+#+end_example
+ - git status:
+ + which is used to know the status of project or repositry.
+#+begin_example
+git status
+#+end_example
+ - git add filename:
+ + filename will be added to git verrsion control
+#+begin_example
+git add sample
+#+end_example
+ - git commit -m "commit message":
+ + which is used to mension the message according to the your task done.
+#+begin_example
+git commit -m "Hello today my task is done"
+#+end_example
+ - git push:
+ + This will upload load to online repositry.
+#+begin_example
+git push
+#+end_example
+ - git log:
+ + which is used to display of the commit.
+#+begin_example
+git log
+#+end_example
+- git checkout commitid:
++ which is used to navigate to the specified commitid
+#+begin_example
+git checkout 1215...
 #+end_example

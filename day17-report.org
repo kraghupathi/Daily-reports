@@ -1,0 +1,123 @@
+* 2016-Feb-17-Thursday:
+** From 9:30 AM TO 01:00 PM :
+ - I have read about KVM Virtual machine and Install, Configure on CentOS. I took various articles from online is availble at [[http://andyhan.linuxdict.com/index.php/sys-adm/item/265-install-and-configure-kvm-on-centos-65][here]]
+* KVM-(Kernel-Based Virtual Machine)
+ - KVM stands for Kernel-based virtual machine, It is a hardware virtualization and  which acts as a Type-II hypervisor that enables, emulates and provides for the
+   creation of virtual machines on operating systems. These machines are built on top of the Linux kernel, using operating systems such as Linux, Ubuntu and Fedora.
+ - It can supports multiple different guest operating system images including Linux Kernel, Windows, BSD and Solaris.
+ - It also allocates separate virtualized computing resources for each virtual machine such as the processor, storage, memory, etc.
+** Advantages of KVM:
+ + KVM is open source software
+ + Which can supports Hardware Virtualization features.
+ + Snapshots
+ + Sound support
+ + PXE boot
+ + Only supports fully virtualized VMs
+
+*** Install and configure KVM on CentOS 6.5
+ + Install KVM
+#+begin_example
+yum groupinstall Virtualization 'Virtualization Client'
+#+end_example
+ + Install Libvirt
+#+begin_example
+yum install libvirt
+service libvirtd start
+#+end_example
+ + Make sure KVM module installed
+#+begin_example
+lsmod | grep kvm
+kvm
+kvm_intel
+#+end_example
+ + Use virt-manager install Guest OS
+#+begin_example
+1). login to GUI
+2). open virt-manager,Add-connection,hypervisor choose QEMU/KVM,click connect。
+3). right click localhost(QEMU) choose New.
+#+end_example
+ + Configure Bridge Network.
+   KVM by default use NAT, your VM can not connect to outside.
+   We need to create a Bridged Network Card on KVM host and then let Virtual Machine use it.
+
+*** Network Address Translation (NAT) with libvirt
+ - One of the most common methods for sharing network connections is to use Network Address Translation (NAT) forwarding (also know as virtual networks).
+ - A NAT (Network Address Translation or Network Address Translator) is the virtualization of Internet Protocol (IP) addresses.
+   NAT helps improve security and decrease the number of IP addresses an organization needs.
+
+* QEMU:
+ - QEMU is a generic and open source machine emulator and virtualizer.
+ - When used as a machine emulator, QEMU can run OSes and programs made for one machine (e.g. an ARM board) on a different machine (e.g. your own PC).
+   By using dynamic translation, it achieves very good performance.
+ - When used as a virtualizer, QEMU achieves near native performance by executing the guest code directly on the host CPU. QEMU supports virtualization when 
+   executing under the Xen hypervisor or using the KVM kernel module in Linux. When using KVM, QEMU can virtualize x86, server and embedded PowerPC, and S390 guests. 
+
+** From 02:30 AM TO 06:00 PM :
+ - I gone through KVM with Snapshot article and setup KVM Snapshot taken from online which is available at [[http://www.sbarjatiya.com/notes_wiki/index.php/Creating_KVM_VM_with_qcow2_disk_format_for_supporting_snapshots][here]]
+* KVM-Snapshot:
+ - A KVM Snapshot is a copy of the virtual machine's disk file (VMDK) at a given point in time. Snapshots provide a change log for the virtual disk and are used to
+   restore a VM to a particular point in time when a failure or system error occurs. Snapshots alone do not provide backup.
+ - A snapshot preserves (maintain in the original) the state and data of a virtual machine at a specific point in time.
+ - The state includes the virtual machine’s power state (for example, powered-on, powered-off, suspended).
+ - The data includes all of the files that make up the virtual machine. This includes disks, memory, and other devices, such as virtual network interface cards. 
+ - A virtual machine provides several operations for creating and managing snapshots and snapshot chains. These operations let you create snapshots, revert to any
+   snapshot in the chain, and remove snapshots. You can create extensive snapshot trees.
+
+* Creating KVM VM with qcow2 disk format for supporting snapshots:
+ - To create kvm VM with qcow2 disk format for supporting snapshots use:
+ 1. Create disk image for VM using something like: 
+#+begin_example
+qemu-img create -f qcow2 ubuntu.qcow2 50G
+#+end_example
+ 2. Create new VM with given disk image. Choose option to customize VM before install.
+  + In customization or setting window for Disk 1 change "Storage format" to qcow2. Without this change KVM will treat the file as 250KB raw image file.
+ 3. Install Operating System
+ 4. Shutdown the VM
+ 5. Take snapshot of fresh installation using: 
+ - syntax:= virsh snapshot-create-as <VMname> "Snapshot name" "Explain Snapshot something"
+#+begin_example
+virsh snapshot-create-as Ubuntu_desktop_12.04 "fresh-install" "Just installed ubuntu"
+#+end_example
+ 6. Start VM again. Now it would get started from fresh-install snapshot. To verify this use:
+- syntax:= visrh snapshot-info <VMname> --current  
+#+begin_example
+virsh snapshot-info Ubuntu_desktop_12.04 --current
+#+end_example
+ 7.To get list of all snaphosts use: 
+#+begin_example
+virsh snapshot-list Ubuntu_desktop_12.04
+#+end_example
+ 8. Now change something in running VM such as menu entries and shutdown the VM.
+ 9. Take snapshot of new VM with modified menu entries using: 
+#+begin_example
+virsh snapshot-create-as Ubuntu_desktop_12.04 "changed-menu" "Changed icons pinned to menu on left"
+#+end_example
+ 10. Get list of all snaphosts using: 
+#+begin_example
+virsh snapshot-list Ubuntu_desktop_12.04
+#+end_example
+ 11. Restore earlier snapshot using: 
+#+begin_example
+virsh snapshot-revert Ubuntu_desktop_12.04 fresh-install
+#+end_example
+ 12. Verify by starting VM that the menu entries as same as in case of fresh-install and all modifications done and saved as changed-menu snapshot are not available.
+ 13. Verify that running VM is using fresh-install snapshot using: 
+#+begin_example
+virsh snapshot-info Ubuntu_desktop_12.04 --current
+#+end_example
+ 14.  Note restoring "fresh-install" snapshot does not affects "changed-menu" snapshot which is still available for restoration. You can list all available
+      snapshots using: 
+#+begin_example
+virsh snapshot-list Ubuntu_desktop_12.04
+#+end_example
+ 15. To see snapshots in tree fashion to know relations between them use: 
+#+begin_example
+virsh snapshot-list Ubuntu_desktop_12.04 --tree
+#+end_example
+ 16. To delete an unwanted snapshot use: 
+#+begin_example
+virsh snapshot-delete Ubuntu_desktop_12.04 changed-menu
+#+end_example
+ 17. Again verify using snapshot-list that snapshot got deleted properly.
+ - Note that here we have created and restored all snapshots when VM was stopped. But snapshots can be created while VM is running to store 
+   complete state disk and RAM as part of snapshot. It is however recommended to create disk only snapshot for efficiency and reliability as long as possible. 

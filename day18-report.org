@@ -1,0 +1,101 @@
+* 2016-Feb-18-Friday:
+** From 9:30 AM TO 01:00 PM :
+  - Today I took Various web-servers and read various articles from online. And practised apache server (i.e service stop, start & restart) on CentOS.
+* Web server:
+ - A web server is an information technology that processes requests via HTTP, 
+   the basic network protocol used to distribute information on the World Wide Web.
+ - The server is a processes a request and sends a reply to client
+* Client Server:
+ - Cleint server is a machine in which is request a service from the server.
+* LAMPP:
+ - LAMPP is a free and open source Linux web server package,It consisting mainly of the Apache HTTP Server, 
+   MySQL database, and interpreters for scripts written in the PHP and Perl programming languages.
+ - It is used as a development tool, to allow website designers and programmers to test their work on their own computers without any access to the Internet. .
+* Apache Web server:
+ - Apache Web Server is an open source Web server for creation, deployment and management software.
+ - which is designed to create Web servers that have the ability to host one or more HTTP-based websites.
+ - It is also widely used by Web hosting companies for the purpose of providing shared/virtual hosting, as by default, 
+   Apache Web Server supports and distinguishes between different hosts that reside on the same machine.
+* DNS-Server 
+ - Domain Name System (or Service or Server), an Internet service that translates domain names into IP addresses. Because domain names are alphabetic,
+   they're easier to remember. The Internet however, is really based on IP addresses. Every time you use a domain name, therefore,
+   a DNS service must translate the name into the corresponding IP address.
+#+begin_example
+The domain name www.example.com might translate to 198.105.232.4.
+#+end_example
+* DHCP(Dynamic Host Configuration Protocol):
+ - DHCP is a Network protocol that automatically provides an Internet Protocol (IP) host with its IP address.
+** Advantages of DHCP-Server:
+ - DHCP is useful for automatic configuration of client network interfaces. When configuring the client system, the administrator chooses DHCP instead of
+   specifying an IP address, netmask, gateway, or DNS servers. The client retrieves this information from the DHCP server. 
+ - There is no need to manually configure each client with an IP address.
+ - You don't need to keep a record of the IP addresses that you have assigned.
+ - You can automatically assign a new IP address if you move a client to a different subnet.
+
+** From 02:00 AM TO 06:00 PM :
+ - I took SSH-Server and with generated with key based authentication on linux server. This article taken from online is availble at [[ https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server][here]]
+* SSH-Server:
+ - Secure Shell, is a protocol used to securely log onto remote systems. It is the most common way to access remote Linux and Unix-like servers,
+   such as VPS instances.
+****** Syntax:= The tool on Linux for connecting to a remote system using SSH is called
+#+begin_example
+ssh remote_host
+#+end_example
+ - The remote_host in this example is the IP address or domain name that you are trying to connect to.
+ - This command assumes that your username on the remote system is the same as your username on your local system.
+ - If your username is different on the remote system, you can specify it by using this syntax:
+#+begin_example
+ssh remote_username@remote_host
+#+end_example
+ - Once you have connected to the server, you will probably be asked to verify your identity by providing a password.
+** Type the following yum command to install openssh client and server.
+#+begin_example
+yum -y install openssh-server openssh-clients
+#+end_example
+*** How Does SSH Work?
+ - SSH works by connecting a client program to an ssh server.
+ - In the above commands, ssh is the client program. The ssh server is already running on the remote_host that we specified.
+ - The process needed to start an ssh server depends on the distribution of Linux that you are using.
+ - You can start the ssh server on the VPS by typing:
+#+begin_example
+sudo service ssh start
+#+end_example
+ - That should start the sshd server and you can then log in remotely.
+*** How Does Key-based Authentication Work?
+ - Key-based authentication works by creating a pair of keys: a private key and a public key.
+ - The private key is located on the client machine and is secured and kept secret.
+ - The public key can be given to anyone or placed on any server you wish to access.
+ - When you attempt to connect using a key-pair, the server will use the public key to create a message for the client computer that can only be read with the private key.
+ - The client computer then sends the appropriate response back to the server and the server will know that the client is legitimate.
+ - This entire process is done in the background automatically after you set up keys.
+**** How To Create SSH Keys
+ - SSH keys should be generated on the computer you wish to log in from. This is usually your local computer.
+ - Enter the following into the command line:
+#+begin_example
+ssh-keygen
+#+end_example 
+ - Press enter to accept the defaults. Your keys will be created at ~/.ssh/id_rsa.pub and ~/.ssh/id_rsa.
+ - Change into the .ssh directory by typing:
+#+begin_example
+cd ~/.ssh
+#+end_example
+ - As you can see, the id_rsa file is readable and writable only to the owner. This is how it should be to keep it secret.
+ - The id_rsa.pub file, however, can be shared and has permissions appropriate for this activity.
+***** How To Transfer Your Public Key to the Server
+ - You can copy the public key to the remote server by issuing this command:
+#+begin_example
+ssh-copy-id remote_host
+#+end_example
+ - This will start an SSH session, which you will need to authenticate with your password.
+ - After you enter your password, it will copy your public key to the server's authorized keys file, which will allow you to log in without the password next time.
+
+*** Bridge
+ - A bridge is a device that separates two or more network segments within one logical network (e.g. a single IP-subnet). 
+ - Bridged networking allows the virtual interfaces to connect to the outside network through the physical interface, making them appear as normal
+   hosts to the rest of the network.
+ - It is sometimes useful to divide a network, such as an Ethernet segment, into network segments without having to create IP subnets and use a router to connect
+   the segments together. 
+ - The basic operation of a bridge is to join two or more network segments. There are many reasons to use a host-based bridge instead of networking equipment,
+   such as cabling constraints or firewalling. A bridge can also connect a wireless interface running in hostap mode to a wired network and act as an access point.
+ - A bridge can be used when firewall functionality (Network Security) is needed without routing or Network Address Translation (NAT).
+   

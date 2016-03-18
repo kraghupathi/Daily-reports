@@ -14,8 +14,12 @@
    computer system and an internet connection from the learners. 
 
 ** From 11:00 AM TO 01:00 PM :
- - 
-
+ - I have worked with sripathi to explain about BASE1, BASE2, BASE3, BASE4, servers
+ - Base1:= Base1 is a server machine, which has staging server, It is used to test software or website. Which we installed Operating System is CentOS and OpenVZ used couple of containers installed of our physical system
+ - Base2:= Base2 is a server machine, Which is used for Production phase (Keep it running or using a websites), Which we installed Operating is CentOS and OpenVZ used couple of containers installed of our physical system.
+ - Base3:=Base3 is a server machine, Which is used for Production phase (Keep it running or using a websites), Which we installed Operating is CentOS and OpenVZ used couple of containers installed of our physical system.
+ - Base4:= Base4 is a server machine, Which is used to testing softwares or websites (i.e catch the errors and correct the errors), Which we installed Operating is CentOS and OpenVZ used couple of containers installed of our physical system.
+ 
 ** From 2:30 AM TO 06:00 PM :
  - Today I gone through about Logwatch and Install Logwatch, configure, and taken articles from online is availble at [[https://devops.profitbricks.com/tutorials/install-and-configure-logwatch/][here]]
 * Logwatch:
@@ -57,4 +61,3 @@ Service = "-ftpd-xferlog"
 #+begin_example
 /usr/sbin/logwatch --mailto user@example.com --format html --service secure
 #+end_example
-

@@ -1,0 +1,7 @@
+* 2016-Feb-14-Monday
+** From 10:30 AM TO 12:30 PM :
+ - I came to attended Prof.Venkatesh meeting about Outreach-Portal
+** From 02:30 AM TO 04:30 PM :
+ - I have attended system meeting about Issues
+** From 04:30 AM TO 05:30 PM :
+ - I gone through =OpenVZ= and practised OpenVZ Commands using created Couple of Containers of our physical system

@@ -1,4 +1,21 @@
 * 2016-Feb-16-Wednesday:
+** From 9:30 AM TO 11:00 AM :
+ - Today I have read about VLEAD and Virtual Labs from online is available at [[http://community.virtual-labs.ac.in/w/index.php/What_is_VLEAD%3F][here]] 
+* What is VLEAD?
+ - VLEAD (Virtual Labs Engineering and Architecture Division), based in IIIT-Hyderabad campus, is one of the several teams working on the =Virtual Labs= project.
+ - VLEAD’s mandate is to design and architect the implementation framework for Virtual Labs, providing all kinds of infrastructure support and services to lab 
+   developers.Of the twelve participating institutes of the project which includes IITs of Delhi, Bombay, Kanpur, Kharagpur, Madras, Guwhati, Roorkee, 
+   IIIT Hyderabad, NITK Surathkal, COE Pune, Dayalbagh Institute and Amrita Institute, VLEAD team from IIIT Hyderabad has taken the responsibility of being the 
+   Central Engineering Team in hosting the labs and providing infrastructure service and support to lab developers.
+* What is Virtual Labs project?
+ - Virtual Labs project is an initiative of the Ministry of Human Resource Development (MHRD), a Government of India sponsored project, under the 
+   National Mission on Education through Information and Communication Technology (NMEICT).
+ - The project’s goal is to provide quality Engineering and Science lab experience to all the students of the country with as minimum requirements as a 
+   computer system and an internet connection from the learners. 
+
+** From 11:00 AM TO 01:00 PM :
+ - 
+
 ** From 2:30 AM TO 06:00 PM :
  - Today I gone through about Logwatch and Install Logwatch, configure, and taken articles from online is availble at [[https://devops.profitbricks.com/tutorials/install-and-configure-logwatch/][here]]
 * Logwatch:

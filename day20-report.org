@@ -7,7 +7,7 @@
   frame without encapsulating or without modification to other LAN. By using local and remote bridge, a network administrator can easily extend the network distance.
 * Switch:
  - Switch is a device, Which is used to connect same network elements.
-** The difference between switch and bridge are
+** The difference between switch and bridge:
 -  Bridge is is device which divides a network into two. Switch connects multiple networks.
 -  Bridge are software based and switch is a hardware based.
 -  Bridge can have upto 16 ports while switch can handle many ports.

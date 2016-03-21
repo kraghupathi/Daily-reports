@@ -17,7 +17,7 @@
 - This page explains about creating a bridge and setting up of a bridge network on base machine.
 - The document further explains the step by step creation of this network.
 - Seen below is the diagram of bridged network along with its Containers.
-[[/home/raghu/Downloads/Untitled drawing(1).jpg]]
+[[./home/raghu/Downloads/Untitled drawing(1).jpg]]
 ** Setting Up Bridge Network:
 *** Connecting LAN Interface and Bridge:
 - To make a connection to the bridge, LAN interface name should be known. It can be identified by using the following command

@@ -1,0 +1,4 @@
+* 2016-Feb-23-Wednesday
+** From 09:30 AM TO 05:30 PM :
+- Today I gone through Bridge networking and Configured bridge on containers in OpenVZ. I have practised bridge networking concepts, created couple of containers
+  and installed bridge and configured container using bridge.

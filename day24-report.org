@@ -1,0 +1,90 @@
+* 2016-Feb-25-Friday
+** From 09:30 AM TO 05:30 PM :
+- Revised concepts of variuos web-servers such as Apache and SSH servers on CentOS. 
+* Apache Web server:
+- Apache Web Server is an open source Web server for creation, deployment and management web applications.
+- Which is designed to host one or more Web applications,
+- It is also widely used by Web server many companies uses this server to host their internal web applications by configuring shared/virtual hosting,
+  as by default, Apache Web Server supports and distinguishes between different hosts that reside on the same machine.
++ To install Apache-server on Linux, use the following command
+#+begin_example
+For Linux:= sudo apt-get install apache2
+For CentOS:= yum install httpd
+#+end_example
+** How to host a website?:
+1) To start the apache server, use the following command:
+#+begin_example
+For Linux:= service apache2 start
+For CentOS:= service httpd start
+#+end_example
+2) open browser and type =localhost= or =127.0.0.1= then, browser displays the default apache page. If the default page is not found, then restart the apache server by using the following command.
+#+begin_example
+For Linux: service apache2 restart
+For CentOS: service httpd restart
+#+end_example
+3) create a sample html, js and css files and place them in a folder. 
+4) move the contents of the folder to  =/var/www/html= or =/var/www/=
+5) open browser and type =localhost/<file name> or 127.0.0.1/<file name>.
+#+begin_example
+localhost/sample.html
+#+end_example
+6) To stop the apache server, use the following command:
+#+begin_example
+For Linux:= service apache2 stop
+For CentOS:= service httpd stop
+#+end_example
+
+* SSH-Server:
+ - Secure Shell, is a protocol used to securely log onto remote systems. It is the most common way to access remote Linux and Unix-like servers,
+   such as VPS instances.
+****** Syntax:= The tool on Linux for connecting to a remote system using SSH is called
+#+begin_example
+ssh remote_host
+#+end_example
+ - The remote_host in this example is the IP address or domain name that you are trying to connect to.
+ - This command assumes that your username on the remote system is the same as your username on your local system.
+ - If your username is different on the remote system, you can specify it by using this syntax:
+#+begin_example
+ssh remote_username@remote_host
+#+end_example
+ - Once you have connected to the server, you will probably be asked to verify your identity by providing a password.
+** Type the following yum command to install openssh client and server.
+#+begin_example
+yum -y install openssh-server openssh-clients
+#+end_example
+*** How Does SSH Work?
+ - SSH works by connecting a client program to an ssh server.
+ - In the above commands, ssh is the client program. The ssh server is already running on the remote_host that we specified.
+ - The process needed to start an ssh server depends on the distribution of Linux that you are using.
+ - You can start the ssh server on the VPS by typing:
+#+begin_example
+sudo service ssh start
+#+end_example
+ - That should start the sshd server and you can then log in remotely.
+*** How Does Key-based Authentication Work?
+ - Key-based authentication works by creating a pair of keys: a private key and a public key.
+ - The private key is located on the client machine and is secured and kept secret.
+ - The public key can be given to anyone or placed on any server you wish to access.
+ - When you attempt to connect using a key-pair, the server will use the public key to create a message for the client computer that can only be read with the private key.
+ - The client computer then sends the appropriate response back to the server and the server will know that the client is legitimate.
+ - This entire process is done in the background automatically after you set up keys.
+**** How To Create SSH Keys
+ - SSH keys should be generated on the computer you wish to log in from. This is usually your local computer.
+ - Enter the following into the command line:
+#+begin_example
+ssh-keygen
+#+end_example 
+ - Press enter to accept the defaults. Your keys will be created at ~/.ssh/id_rsa.pub and ~/.ssh/id_rsa.
+ - Change into the .ssh directory by typing:
+#+begin_example
+cd ~/.ssh
+#+end_example
+ - As you can see, the id_rsa file is readable and writable only to the owner. This is how it should be to keep it secret.
+ - The id_rsa.pub file, however, can be shared and has permissions appropriate for this activity.
+***** How To Transfer Your Public Key to the Server
+ - You can copy the public key to the remote server by issuing this command:
+#+begin_example
+ssh-copy-id remote_host
+#+end_example
+ - This will start an SSH session, which you will need to authenticate with your password.
+ - After you enter your password, it will copy your public key to the server's authorized keys file, which will allow you to log in without the password next time.

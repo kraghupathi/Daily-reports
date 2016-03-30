@@ -1,0 +1,91 @@
+* 2016-Feb-21-Monday
+** From 10:00 AM TO 05:30 PM :
+- Today I gone through basics of networking concepts and various protocols, I read about protocols from online taken various articles.
+* Network Topology:
+- Network topology is the arrangement of the various elements (links, nodes, etc.) of a computer network. 
+  Essentially, it is the topological structure of a network and may be depicted physically or logically.
+* Network:
+- Network can be defined as a group of computers and other services connected together to exchangble data.
+* Protocol:
+- which is a rules and govern the communication between two computers connected by the network.
+  IP address port range from 0-255
+* Internet Protocol (IP):
+- IP address is a number, which is used to indicate the location of a computer.
+* IPV4:
+- IPv4 stands for Internet Protocol Version 4. which is 32-bit addressing space used as TCP/IP host addressing mechanism. 
+* IPV6:
+- IPv4 stands for Internet Protocol Version 4.which is 128-bit addressing space.
+* Public IP:
+- A public IP address is an IP address that can be accessed over the Internet. Like postal address used to deliver a postal mail to your home.
+- A public IP address is the globally unique IP address assigned to a computing device.
+** Public Addresses
+| 1.0.0.0      | 9.255.255.255   |
+| 11.x.x.x     | 126.255.255.255 |
+| 129.0.0.0    | 169.253.255.255 |
+| 169.255.0.0  | 172.15.255.255  |
+| 172.32.0.0   | 191.0.1.255     |
+| 192.0.3.0    | 192.88.98.255   |
+| 192.88.100.0 | 192.167.255.255 |
+| 192.169.0.0  | 198.17.255.255  |
+| 198.20.0.0   | 223.255.255.255 |
+
+* Private IP:
+- A private IP address is the address space allocated by InterNIC to allow organizations to create their own private network.
+* Private IP Range:
++ CLASS A: from 10.0.0.0    to 10.255.255.255   
++ CLASS B: from 172.16.0.0  to 172.31.255.255   
++ CLASS C: from 192.168.0.0 to 192.168.255.255
+* Static IP:
+- Static IP is a fixed ip,it will not change
+* Dynamic IP:
+- Dynamic IP address is temporary and it will change over time.
+* FTP(File Transfer Protocol):
+- FTP is standard internet protocol, which is used to exchange files on the internet.
+* HTTP:
+- HTTP protocol for communication between web browsers and servers.
+* SMTP(Simple Mail Transfer Protocol):
+- SMTP stands for Simple Mail Transfer Protocol, which is generally used to send messages from a mail client to a mail server. 
+* URL(Uniform Resource Locator):
+- URL stands for Uniform Resource Locator, which is used to specify addresses on the World Wide Web.
+* TCP/IP (Transmission Control Protocol):
+- TCP/IP is the basic communication language or protocol of the Internet. 
+- It can also be used as a communications protocol in a private network
+* VPN(Virtual Private Network):
+- A Virtual Private Network (VPN) is a network technology that creates a secure network connection over a public network such as the Internet or a 
+  private network owned by a service provider. And VPN can connect multiple sites over a large distance just like a Wide Area Network (WAN).
+* PING:
+- Ping is a networking utility program. Which is used for verification of IP connectivity.
+#+begin_example
+ping www.google.com
+#+end_example
+* Network Classes:
++ CLASS A: from 0 to 127 for internet communication
++ CLASS B: from 128 to 191 ""
++ CLASS C: from 192 to 223 ""
++ CLASS D: from 224 to 239 Reserved for Multicasting
++ CLASS E: from 240 to 254 used for researching and experiments
+* LAN(Local Area Network):
+- LAN is a Local Area Network it covers buildings and or a set of closely related buildings.
++ Ex:= Ethernet.
+* WAN(Wired Area Network):
+- WAN is a Wired Area Network it covers cities, towns and countries.
++ Ex: ATM
+* Gateway:
+- A gateway is a data communication device, that joins together two different networks. In the most scenario an internal network with the internet.
+- A router is an example of a gateway device. A router is a device that does routing, deciding where packets are sent to based on its IP address.
+* Netmask:
+- A netmask is a 32-bit number,that mask is used to divide an IP address into subnets and specify the network's available hosts.
++ CLASS A:255.0.0.0
++ CLASS B:255.255.0.0
++ CLASS C:255.255.255.0
+* Port:
+- which specifies the process in the machine
+- Port values range from 0-65535
+* Port Numbers for given following Protocols:
++ SSH - 22
++ HTTP - 80
++ HTTPS- 443
++ FTP - 20(for data) 21(for control)
++ SMTP - 25
++ DNS - 53
++ DHCP - 67

@@ -1,0 +1,65 @@
+* 2016-Feb-29-Tuesday:
+** From 9:30 AM TO 05:30 PM :
+ - Today I took setup DHCP server and Installed DHCP server on CentOS. I have read about DHCP server and taken various articles from online is available at [[http://www.krizna.com/centos/install-configure-dhcp-server-centos-6/][here]]
+* Setup DHCP server on Centos:
+- Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses and other stuff like gateway and DNS details automatically to the clients.
+  we need a DHCP server configured for offering ipaddress to the clients when it is required.
+* Installing DHCP server on Centos:
+- Update yum repositories and packages by typing the below command
+#+begin_example
+[root@localhost ~]# yum update
+#+end_example
+- *Step 1* » Install dhcp server and client using the below command
+#+begin_example
+[root@localhost ~]# yum install dhcp
+#+end_example
+- *Step 2* » After installing dhcp server packages along with dependencies .Assign a static ip (eg: “192.168.1.11”) in the same DHCP range for
+  the listening interface ( eg : “eth0” ). Open =/etc/sysconfig/network-scripts/ifcfg-eth0= file and make the changes as per your requirement .
+#+begin_example
+HWADDR="00:0C:29:F1:01:4B"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+BOOTPROTO="none"
+IPADDR=192.168.1.11
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+#+end_example
+- *Step 3* » Now open =/etc/sysconfig/dhcpd= file and add the preferred interface name to DHCPDARGS variable as below
+#+begin_example
+# Command line options here
+DHCPDARGS=eth0
+#+end_example
+- *Step 4* » open =/etc/dhcp/dhcpd.conf= file and paste the below lines and save it.
+#+begin_example
+#specify domain name
+option domain-name "krizna.com";
+#specify DNS server ip and additional DNS server ip
+option domain-name-servers 192.168.1.10, 208.67.222.222;
+#specify default lease time
+default-lease-time 600;
+#specify Max lease time
+max-lease-time 7200;
+#specify log method
+log-facility local7;
+#Configuring subnet and iprange
+subnet 192.168.1.0 netmask 255.255.255.0 {
+range 192.168.1.50 192.168.1.254;
+option broadcast-address 192.168.1.255;
+#Default gateway ip
+option routers 192.168.1.1;
+}
+#Fixed ip address based on MAC id
+host Printer01 {
+hardware ethernet 02:34:37:24:c0:a5;
+fixed-address 192.168.1.55;
+}
+#+end_example
+- *Step 5* » Now start the service
+#+begin_example
+[root@localhost ~]# service dhcpd start
+#+end_example
+- and type this below command to start dhcp service automatically while booting.
+#+begin_example
+[root@localhost ~]# chkconfig --levels 235 dhcpd on
+#+end_example
+- That’s it .Clients can get IP from DHCP server and Please ensure you don’t have any other dhcp servers in the same network ( Routers might have DHCP enabled ).

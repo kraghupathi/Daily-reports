@@ -1,4 +1,4 @@
-* 2016-Feb-31-Thursday:
+* 2016-Apr-01-Friday:
 ** From 9:30 AM TO 06:00 PM :
 - I have practised Python Programs and wrote a simple python script that will Variables, Expressions, Functions and Conditional statements. This script will also check status of programs.
 - Executed the script using command

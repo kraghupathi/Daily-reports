@@ -1,4 +1,4 @@
-* 2016-Feb-31-Thursday:
+* 2016-March-31-Thursday:
 ** From 9:30 AM TO 06:00 PM :
 - Today I started basics of Programming Language concepts and Python Programming Language. I read various articles about Python and I have done few Exercises on Python those are following
 * Exercise1.

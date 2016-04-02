@@ -1,4 +1,4 @@
-* 2016-Feb-28-Monday:
+* 2016-March-28-Monday:
 ** From 9:30 AM TO 05:30 PM :
 - Today I took setup DHCP server, Setup DHCP server and Installed DHCP server on CentOS. I have read about DHCP server and taken various articles from online is available at [[http://www.krizna.com/centos/install-configure-dhcp-server-centos-6/][here]]
 * DHCP(Dynamic Host Configuration Protocol):

@@ -1,6 +1,6 @@
 * 2016-Feb-29-Tuesday:
-** From 9:30 AM TO 05:30 PM :
- - Today I took setup DHCP server and Installed DHCP server on CentOS. I have read about DHCP server and taken various articles from online is available at [[http://www.krizna.com/centos/install-configure-dhcp-server-centos-6/][here]]
+** From 9:30 AM TO 01:30 PM :
+- I gone through practised DHCP server, Installed and setup DHCP sever on Containers in OpenVZ.
 * Setup DHCP server on Centos:
 - Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses and other stuff like gateway and DNS details automatically to the clients.
   we need a DHCP server configured for offering ipaddress to the clients when it is required.
@@ -13,45 +13,51 @@
 #+begin_example
 [root@localhost ~]# yum install dhcp
 #+end_example
-- *Step 2* » After installing dhcp server packages along with dependencies .Assign a static ip (eg: “192.168.1.11”) in the same DHCP range for
-  the listening interface ( eg : “eth0” ). Open =/etc/sysconfig/network-scripts/ifcfg-eth0= file and make the changes as per your requirement .
+- *Step 2* » After installing dhcp server packages along with dependencies .Assign a static ip (eg: “10.2.59.101”) in the same DHCP range for
+  the listening interface ( eg : “eth1” ). Open =/etc/sysconfig/network-scripts/ifcfg-eth1= file and make the changes as per your requirement .
 #+begin_example
 HWADDR="00:0C:29:F1:01:4B"
 NM_CONTROLLED="yes"
 ONBOOT="yes"
-BOOTPROTO="none"
-IPADDR=192.168.1.11
+BOOTPROTO="dhcp"
+IPADDR=10.2.59.101
 NETMASK=255.255.255.0
-GATEWAY=192.168.1.1
+GATEWAY=10.2.59.1
 #+end_example
 - *Step 3* » Now open =/etc/sysconfig/dhcpd= file and add the preferred interface name to DHCPDARGS variable as below
 #+begin_example
 # Command line options here
-DHCPDARGS=eth0
+DHCPDARGS=eth1
 #+end_example
 - *Step 4* » open =/etc/dhcp/dhcpd.conf= file and paste the below lines and save it.
 #+begin_example
-#specify domain name
-option domain-name "krizna.com";
+
+option domain-name "kraghupathi.com";
+
 #specify DNS server ip and additional DNS server ip
-option domain-name-servers 192.168.1.10, 208.67.222.222;
-#specify default lease time
+option domain-name-servers 10.2.59.100;
+
+# default lease time
+
 default-lease-time 600;
-#specify Max lease time
+# max lease time
+
 max-lease-time 7200;
-#specify log method
-log-facility local7;
-#Configuring subnet and iprange
-subnet 192.168.1.0 netmask 255.255.255.0 {
-range 192.168.1.50 192.168.1.254;
-option broadcast-address 192.168.1.255;
-#Default gateway ip
-option routers 192.168.1.1;
-}
-#Fixed ip address based on MAC id
-host Printer01 {
-hardware ethernet 02:34:37:24:c0:a5;
-fixed-address 192.168.1.55;
+# this DHCP server to be declared valid
+
+authoritative;
+# specify network address and subnet mask
+
+subnet 10.2.59.100 netmask 255.255.255.0 {
+    # specify the range of lease IP address
+
+    range dynamic-bootp 10.0.0.200 10.0.0.254;
+    # specify broadcast address
+
+    option broadcast-address 10.2.59.255;
+    # specify default gateway
+
+    option routers 10.2.59.1;
 }
 #+end_example
 - *Step 5* » Now start the service
@@ -60,6 +66,34 @@ fixed-address 192.168.1.55;
 #+end_example
 - and type this below command to start dhcp service automatically while booting.
 #+begin_example
-[root@localhost ~]# chkconfig --levels 235 dhcpd on
+[root@localhost ~]# chkconfig dhcpd on
 #+end_example
-- That’s it .Clients can get IP from DHCP server and Please ensure you don’t have any other dhcp servers in the same network ( Routers might have DHCP enabled ).
+
+** From 9:30 AM TO 01:30 PM :
+- I took DNS-Server, BIND(DNS)-Server and Installed BIND(DNS)-Sever on CentOS. I read about BIND server and completed various tutorials from online.
+
+* DNS-Server 
+- Domain Name System (or Service or Server), an Internet service that translates domain names into IP addresses. Because domain names are alphabetic,
+  they're easier to remember. The Internet however, is really based on IP addresses. Every time you use a domain name, therefore,
+  a DNS service must translate the name into the corresponding IP address.
+   * EX:= To find the IP address of www.example.com. We use command as below
+#+begin_example
+nslookup www.example.com
+#+end_example
+The above command will give the ip address associated with =www.example.com= using DNS server.
+* BIND(DNS)-Sever:
+- BIND stands for Berkley Internet Naming Daemon. Which is the most common program used for maintaining a name server on Linux.
+** Advantages of DNS-Server:
+- DNS can be configured to allow dynamic secure updates, enhancing the security of your DNS infrastructure.
+- No need to memorise numbers.
+- Domain names makes / gives a kind of sense to hyper links when a name is given instead of a string of numbers .
+- Easy for categorising,archiving and inturn helping ( to an extent ) search engines.
+* Installing BIND(DNS) Server:
+- Update yum repositories and packages by typing the below command
+#+begin_example
+[root@localhost ~]# yum update
+#+end_example
+- Install BIND(DNS) Server using the below command
+#+begin_example
+[root@masterdns ~]# yum install bind* -y
+#+end_example
